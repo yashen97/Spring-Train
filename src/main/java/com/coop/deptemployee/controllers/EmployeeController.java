@@ -21,7 +21,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/postall")
-    public String postEmployees(List<Employee> employees){
+    public String postEmployees(@RequestBody List<Employee> employees){
         employeeService.addAllEmployees(employees);
         return "200 Ok";
     }
@@ -34,6 +34,18 @@ public class EmployeeController {
     @GetMapping("/getone")
     public @ResponseBody Optional<Employee> getOneEmployee(@PathVariable Long id){
         return employeeService.getOneEmployee(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public String updateEmployee(Employee employee){
+        employeeService.addOrUpdate(employee);
+        return "204 Updated";
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable Long id){
+        employeeService.deleteEmployee(id);
+        return "204 Deleted";
     }
 
 }
