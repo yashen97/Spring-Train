@@ -36,8 +36,8 @@ public class EmployeeController {
         return employeeService.getOneEmployee(id);
     }
 
-    @PutMapping("/update/{id}")
-    public String updateEmployee(Employee employee){
+    @PutMapping("/update")
+    public String updateEmployee(@RequestBody Employee employee){
         employeeService.addOrUpdate(employee);
         return "204 Updated";
     }
