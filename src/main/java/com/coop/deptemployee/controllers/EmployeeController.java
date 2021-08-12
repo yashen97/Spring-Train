@@ -31,7 +31,7 @@ public class EmployeeController {
         return employeeService.getEmployees();
     }
 
-    @GetMapping("/getone")
+    @GetMapping("/getone/{id}")
     public @ResponseBody Optional<Employee> getOneEmployee(@PathVariable Long id){
         return employeeService.getOneEmployee(id);
     }
